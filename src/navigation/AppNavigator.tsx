@@ -21,6 +21,8 @@ import SearchUserScreen from '../screens/SearchUserScreen';
 import ImageDetailScreen from '../screens/ImageDetailScreen';
 import RegisterUserScreen from '../screens/RegisterUserScreen';
 import RegisterUserDetailsScreen from '../screens/RegisterUserDetailsScreen';
+import ChatList from '../screens/ChatListScreen';
+import ChatRoom from '../screens/ChatRoomScreen';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -71,6 +73,14 @@ const AppNavigator = () => {
         <Stack.Screen
           name="TotalHelpRequest"
           component={TotalHelpRequestScreen}
+        />
+        <Stack.Screen
+          name="ChatList"
+          component={ChatList}
+        />
+        <Stack.Screen
+          name="ChatRoom"
+          component={ChatRoom}
         />
         <Stack.Screen name="SolvedHelp" component={SolvedHelpScreen} />
         <Stack.Screen name="RejectedHelp" component={RejectedHelpScreen} />

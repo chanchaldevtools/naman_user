@@ -51,7 +51,7 @@ const createLoginFormData = (
   formData.append('mobile_number', mobileNumber);
   formData.append('password', password);
   formData.append('login_type', loginType);
-  formData.append('device_token', deviceToken);
+  formData.append('fcm', deviceToken);
 
   return formData;
 };

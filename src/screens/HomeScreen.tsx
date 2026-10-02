@@ -107,11 +107,7 @@ const HomeScreen = () => {
             onPress={loadAllData}
             style={styles.iconBtn}
             activeOpacity={0.7}>
-            <MaterialIcons
-              name="refresh"
-              size={25}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="refresh" size={25} color="#FFFFFF" />
           </TouchableOpacity>
 
           {/* Logout */}
@@ -119,11 +115,7 @@ const HomeScreen = () => {
             onPress={handleLogout}
             style={styles.iconBtn}
             activeOpacity={0.7}>
-            <MaterialIcons
-              name="logout"
-              size={24}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="logout" size={24} color="#FFFFFF" />
           </TouchableOpacity>
         </View>
       </View>
@@ -131,7 +123,6 @@ const HomeScreen = () => {
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
-        
         {/* Profile Card */}
         {userType === 'of' ? (
           <View style={styles.officerCard}>
@@ -151,11 +142,7 @@ const HomeScreen = () => {
 
             {sessionData.designation ? (
               <View style={styles.profileDetailRow}>
-                <MaterialIcons
-                  name="badge"
-                  size={18}
-                  color="#555555"
-                />
+                <MaterialIcons name="badge" size={18} color="#555555" />
 
                 <Text style={styles.officerSub}>
                   Designation - {sessionData.designation}
@@ -165,11 +152,7 @@ const HomeScreen = () => {
 
             {sessionData.mobileNumber ? (
               <View style={styles.profileDetailRow}>
-                <MaterialIcons
-                  name="phone"
-                  size={18}
-                  color="#555555"
-                />
+                <MaterialIcons name="phone" size={18} color="#555555" />
 
                 <Text style={styles.officerDetail}>
                   Mobile - {sessionData.mobileNumber}
@@ -230,11 +213,7 @@ const HomeScreen = () => {
 
               {sessionData.inchargeName ? (
                 <View style={styles.stationInfoRow}>
-                  <MaterialIcons
-                    name="person"
-                    size={18}
-                    color="#222222"
-                  />
+                  <MaterialIcons name="person" size={18} color="#222222" />
 
                   <Text style={styles.stationSub}>
                     {sessionData.inchargeName}
@@ -244,11 +223,7 @@ const HomeScreen = () => {
 
               {sessionData.mobileNumber ? (
                 <View style={styles.stationInfoRow}>
-                  <MaterialIcons
-                    name="phone"
-                    size={17}
-                    color="#222222"
-                  />
+                  <MaterialIcons name="phone" size={17} color="#222222" />
 
                   <Text style={styles.stationDetail}>
                     Registered Mobile - {sessionData.mobileNumber}
@@ -272,11 +247,7 @@ const HomeScreen = () => {
 
               {sessionData.emailId ? (
                 <View style={styles.stationInfoRow}>
-                  <MaterialIcons
-                    name="email"
-                    size={17}
-                    color="#222222"
-                  />
+                  <MaterialIcons name="email" size={17} color="#222222" />
 
                   <Text style={styles.stationDetail}>
                     Email - {sessionData.emailId}
@@ -329,11 +300,7 @@ const HomeScreen = () => {
 
               {sessionData.state ? (
                 <View style={styles.stationInfoRow}>
-                  <MaterialIcons
-                    name="map"
-                    size={17}
-                    color="#222222"
-                  />
+                  <MaterialIcons name="map" size={17} color="#222222" />
 
                   <Text style={styles.stationDetail}>
                     State - {sessionData.state}, India
@@ -348,44 +315,24 @@ const HomeScreen = () => {
         <View style={styles.circleRow}>
           {/* Total Users */}
           <TouchableOpacity
-            style={[
-              styles.statCircle,
-              {borderColor: '#FF5722'},
-            ]}
+            style={[styles.statCircle, {borderColor: '#FF5722'}]}
             onPress={() => navigation.navigate('SearchUser')}
             activeOpacity={0.7}>
-            <MaterialIcons
-              name="people"
-              size={25}
-              color="#FF5722"
-            />
+            <MaterialIcons name="people" size={25} color="#FF5722" />
 
-            <Text
-              style={[
-                styles.statTitle,
-                {color: '#FF5722'},
-              ]}>
+            <Text style={[styles.statTitle, {color: '#FF5722'}]}>
               Total User
             </Text>
 
-            <Text
-              style={[
-                styles.statCount,
-                {color: '#FF5722'},
-              ]}>
+            <Text style={[styles.statCount, {color: '#FF5722'}]}>
               {userList.length}
             </Text>
           </TouchableOpacity>
 
           {/* Total Help */}
           <TouchableOpacity
-            style={[
-              styles.statCircle,
-              {borderColor: '#536DFE'},
-            ]}
-            onPress={() =>
-              navigation.navigate('TotalHelpRequest')
-            }
+            style={[styles.statCircle, {borderColor: '#536DFE'}]}
+            onPress={() => navigation.navigate('TotalHelpRequest')}
             activeOpacity={0.7}>
             <MaterialIcons
               name="support-agent"
@@ -393,110 +340,72 @@ const HomeScreen = () => {
               color="#536DFE"
             />
 
-            <Text
-              style={[
-                styles.statTitle,
-                {color: '#536DFE'},
-              ]}>
+            <Text style={[styles.statTitle, {color: '#536DFE'}]}>
               Total Help
             </Text>
 
-            <Text
-              style={[
-                styles.statCount,
-                {color: '#536DFE'},
-              ]}>
+            <Text style={[styles.statCount, {color: '#536DFE'}]}>
               {helpList.length}
             </Text>
           </TouchableOpacity>
 
           {/* Total Visit */}
           <TouchableOpacity
-            style={[
-              styles.statCircle,
-              {borderColor: '#4CAF50'},
-            ]}
+            style={[styles.statCircle, {borderColor: '#4CAF50'}]}
             onPress={() => navigation.navigate('Visit')}
             activeOpacity={0.7}>
-            <MaterialIcons
-              name="groups"
-              size={25}
-              color="#4CAF50"
-            />
+            <MaterialIcons name="groups" size={25} color="#4CAF50" />
 
-            <Text
-              style={[
-                styles.statTitle,
-                {color: '#4CAF50'},
-              ]}>
+            <Text style={[styles.statTitle, {color: '#4CAF50'}]}>
               Total Visit
             </Text>
 
-            <Text
-              style={[
-                styles.statCount,
-                {color: '#4CAF50'},
-              ]}>
+            <Text style={[styles.statCount, {color: '#4CAF50'}]}>
               {visitList.length}
             </Text>
           </TouchableOpacity>
         </View>
 
-        {/* Officer Panel Button */}
-        {userType !== 'of' && (
+        {/* ✅ Officer Panel + Messages — ek hi line me */}
+        <View style={styles.gridRow}>
+          {/* Officer Panel — sirf PS/IC ke liye */}
+          {userType !== 'of' && (
+            <TouchableOpacity
+              style={[styles.gridCard, {backgroundColor: '#536DFE'}]}
+              onPress={() => navigation.navigate('OfficerPanel')}
+              activeOpacity={0.8}>
+              <MaterialIcons name="badge" size={30} color="#FFFFFF" />
+
+              <Text style={styles.cardTitle}>OFFICER{'\n'}PANEL</Text>
+
+              <Text style={styles.cardNumber}>{officerList.length}</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* Messages — count nahi chahiye */}
           <TouchableOpacity
             style={[
-              styles.longCard,
-              {backgroundColor: '#536DFE'},
+              styles.gridCard,
+              {backgroundColor: '#25D366'},
+              userType === 'of' && {flex: 1},
             ]}
-            onPress={() =>
-              navigation.navigate('OfficerPanel')
-            }
+            onPress={() => navigation.navigate('ChatList')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="badge"
-              size={32}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="chat" size={30} color="#FFFFFF" />
 
-            <View style={styles.cardTextContainer}>
-              <Text style={styles.cardTitle}>
-                OFFICER PANEL
-              </Text>
-
-              <Text style={styles.cardNumber}>
-                {officerList.length}
-              </Text>
-            </View>
-
-            <MaterialIcons
-              name="chevron-right"
-              size={30}
-              color="#FFFFFF"
-            />
+            <Text style={styles.cardTitle}>MESSAGES</Text>
           </TouchableOpacity>
-        )}
+        </View>
 
         {/* New User / Active Users */}
         <View style={styles.gridRow}>
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#FF9800'},
-            ]}
-            onPress={() =>
-              navigation.navigate('NewUserList')
-            }
+            style={[styles.gridCard, {backgroundColor: '#FF9800'}]}
+            onPress={() => navigation.navigate('NewUserList')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="person-add"
-              size={30}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="person-add" size={30} color="#FFFFFF" />
 
-            <Text style={styles.cardTitle}>
-              New User Requests
-            </Text>
+            <Text style={styles.cardTitle}>New User Requests</Text>
 
             <Text style={styles.cardNumber}>
               {newUserRequestList.length}
@@ -504,64 +413,33 @@ const HomeScreen = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#4CAF50'},
-            ]}
-            onPress={() =>
-              navigation.navigate('ActiveUserList')
-            }
+            style={[styles.gridCard, {backgroundColor: '#4CAF50'}]}
+            onPress={() => navigation.navigate('ActiveUserList')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="people"
-              size={30}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="people" size={30} color="#FFFFFF" />
 
-            <Text style={styles.cardTitle}>
-              Active Users
-            </Text>
+            <Text style={styles.cardTitle}>Active Users</Text>
 
-            <Text style={styles.cardNumber}>
-              {acceptedList.length}
-            </Text>
+            <Text style={styles.cardNumber}>{acceptedList.length}</Text>
           </TouchableOpacity>
         </View>
 
         {/* Rejected Users / New Help */}
         <View style={styles.gridRow}>
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#F44336'},
-            ]}
-            onPress={() =>
-              navigation.navigate('RejectedUserList')
-            }
+            style={[styles.gridCard, {backgroundColor: '#F44336'}]}
+            onPress={() => navigation.navigate('RejectedUserList')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="person-off"
-              size={30}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="person-off" size={30} color="#FFFFFF" />
 
-            <Text style={styles.cardTitle}>
-              Rejected Users
-            </Text>
+            <Text style={styles.cardTitle}>Rejected Users</Text>
 
-            <Text style={styles.cardNumber}>
-              {rejectedList.length}
-            </Text>
+            <Text style={styles.cardNumber}>{rejectedList.length}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#2196F3'},
-            ]}
-            onPress={() =>
-              navigation.navigate('NewHelpRequest')
-            }
+            style={[styles.gridCard, {backgroundColor: '#2196F3'}]}
+            onPress={() => navigation.navigate('NewHelpRequest')}
             activeOpacity={0.8}>
             <MaterialIcons
               name="support-agent"
@@ -569,60 +447,32 @@ const HomeScreen = () => {
               color="#FFFFFF"
             />
 
-            <Text style={styles.cardTitle}>
-              New Help Requests
-            </Text>
+            <Text style={styles.cardTitle}>New Help Requests</Text>
 
-            <Text style={styles.cardNumber}>
-              {newHelpList.length}
-            </Text>
+            <Text style={styles.cardNumber}>{newHelpList.length}</Text>
           </TouchableOpacity>
         </View>
 
         {/* Solved Help / Rejected Help */}
         <View style={styles.gridRow}>
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#009688'},
-            ]}
-            onPress={() =>
-              navigation.navigate('SolvedHelp')
-            }
+            style={[styles.gridCard, {backgroundColor: '#009688'}]}
+            onPress={() => navigation.navigate('SolvedHelp')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="task-alt"
-              size={30}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="task-alt" size={30} color="#FFFFFF" />
 
-            <Text style={styles.cardTitle}>
-              Solved Help Requests
-            </Text>
+            <Text style={styles.cardTitle}>Solved Help Requests</Text>
 
-            <Text style={styles.cardNumber}>
-              {solvedHelpList.length}
-            </Text>
+            <Text style={styles.cardNumber}>{solvedHelpList.length}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[
-              styles.gridCard,
-              {backgroundColor: '#E91E63'},
-            ]}
-            onPress={() =>
-              navigation.navigate('RejectedHelp')
-            }
+            style={[styles.gridCard, {backgroundColor: '#E91E63'}]}
+            onPress={() => navigation.navigate('RejectedHelp')}
             activeOpacity={0.8}>
-            <MaterialIcons
-              name="cancel"
-              size={30}
-              color="#FFFFFF"
-            />
+            <MaterialIcons name="cancel" size={30} color="#FFFFFF" />
 
-            <Text style={styles.cardTitle}>
-              Rejected Help Requests
-            </Text>
+            <Text style={styles.cardTitle}>Rejected Help Requests</Text>
 
             <Text style={styles.cardNumber}>
               {rejectedHelpList.length}
@@ -843,7 +693,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  /* Officer Panel */
+  /* Officer Panel / Long Cards */
   longCard: {
     marginHorizontal: 16,
     marginBottom: 12,

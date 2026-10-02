@@ -43,9 +43,17 @@ interface AuthState {
   error: string | null;
   sessionData: SessionData;
 
-  // Actions
-  loginPS: (mobile: string, password: string) => Promise<string>;
-  loginOfficer: (mobile: string, password: string) => Promise<string>;
+  // ✅ yahan fcmToken param add kiya
+  loginPS: (
+    mobile: string,
+    password: string,
+    fcmToken?: string,
+  ) => Promise<string>;
+  loginOfficer: (
+    mobile: string,
+    password: string,
+    fcmToken?: string,
+  ) => Promise<string>;
   logout: () => Promise<void>;
   loadSession: () => Promise<boolean>;
 }
@@ -72,10 +80,21 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   error: null,
   sessionData: {},
 
-  loginPS: async (mobile, password) => {
+  // ══════════════════════════════════════════
+  // PS / IC LOGIN
+  // ══════════════════════════════════════════
+  loginPS: async (mobile, password, fcmToken = '') => {
     set({isLoading: true, error: null});
     try {
-      const res = await loginApi.psLogin(mobile, password, '1', 'asf4as5f45as1f5');
+      console.log('📤 PS Login — fcm:', fcmToken);
+
+      const res = await loginApi.psLogin(
+        mobile,
+        password,
+        '1',
+        fcmToken, // ✅ real FCM token bhej rahe hain
+      );
+
       if (res.response === 'ok' && res.userData) {
         const d = res.userData;
         await storage.erase();
@@ -93,6 +112,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           {key: KEYS.city, value: d.city ?? ''},
           {key: KEYS.emailId, value: d.email_id ?? ''},
           {key: KEYS.state, value: d.state ?? ''},
+          {key: KEYS.fcmToken, value: fcmToken ?? ''}, // ✅ optional: fcm save bhi kar lo
         ]);
 
         const session: SessionData = {
@@ -129,10 +149,21 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
-  loginOfficer: async (mobile, password) => {
+  // ══════════════════════════════════════════
+  // OFFICER LOGIN
+  // ══════════════════════════════════════════
+  loginOfficer: async (mobile, password, fcmToken = '') => {
     set({isLoading: true, error: null});
     try {
-      const res = await loginApi.officerLogin(mobile, password, '2', 'asf4as5f45as1f5');
+      console.log('📤 Officer Login — fcm:', fcmToken);
+
+      const res = await loginApi.officerLogin(
+        mobile,
+        password,
+        '2',
+        fcmToken, // ✅ real FCM token bhej rahe hain
+      );
+
       if (res.response === 'ok' && res.userData) {
         const d = res.userData as OfficerLoginUserData;
         await storage.erase();
@@ -142,7 +173,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           {key: KEYS.officerName, value: d.officer_name ?? ''},
           {key: KEYS.mobileNumber, value: d.mobile_number ?? ''},
           {key: KEYS.designation, value: d.designation ?? ''},
-          {key: KEYS.fcmToken, value: d.fcm_token ?? ''},
+          {key: KEYS.fcmToken, value: fcmToken ?? ''}, // ✅ fcm save
           {key: KEYS.isActive, value: d.is_active?.toString() ?? ''},
           {key: KEYS.psName, value: d.police_station_name ?? ''},
           {key: KEYS.userName, value: d.user_name ?? ''},
@@ -175,6 +206,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
+  // ══════════════════════════════════════════
+  // LOGOUT
+  // ══════════════════════════════════════════
   logout: async () => {
     await storage.erase();
     set({
@@ -199,6 +233,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     });
   },
 
+  // ══════════════════════════════════════════
+  // LOAD SESSION
+  // ══════════════════════════════════════════
   loadSession: async () => {
     const psName = await storage.get(KEYS.psName);
     const type = await storage.get(KEYS.type);
